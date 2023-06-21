@@ -1,0 +1,14 @@
+#Add_Yesterday_todo{
+    position: relative;
+}
+.TodoItems{
+    padding: 0.5em 1em;
+    background-color: rgb(221, 220, 220);
+    margin: 5px;
+    border-radius: 5px;
+    display: flex;
+}
+.TodoContent{
+    width:10em;
+    line-break: anywhere;
+}

@@ -3,13 +3,21 @@ let Yesterday_old_data = []
 
 function CreateElements(Array1) {
     for (let a = 0; a < Array1.length; a++) {
-        let items_ = document.getElementById('Add_Yesterday_todo');
-        let Element = document.createElement('li');
-        Element.innerText = Array1[a];
-        items_.append(Element);
+        let items_ = document.getElementById('Add_Yesterday_todo');//Reference div to create element
+        let Element = document.createElement('div');//creating parent div for todo and btns
+        Element.setAttribute("class", "TodoItems");//class name for parent div
+        items_.append(Element)//make the parent div as child to another div
+
+        //Creating content div and add the item from Array
+        let Todo_item = document.createElement('div');
+        Todo_item.setAttribute("class", "TodoContent");
+        Todo_item.innerText = Array1[a];
+        Element.append(Todo_item);
+
+        //Add the button to remove the item from array
         let Btn_Done = document.createElement('button')
         Btn_Done.innerText = 'DONE'
-        items_.append(Btn_Done);
+        Element.append(Btn_Done);
         Btn_Done.setAttribute("class", "Btn_done");
         Btn_Done.setAttribute("id", Array1[a]);
         // Array1 = Array1.filter(e => e !== Array1[a]);
@@ -25,14 +33,15 @@ function ClearLocalstorageItem(ItemsToRemove) {
     console.log(Temp_yesterday)
 
 }
-document.getElementById('Btn').addEventListener('click', () => {
+
+const AddItems = function () {
     let input_value = document.getElementById("Yesterday").value;
     if (input_value !== '') {
         Yesterday.push(input_value);
         // Yesterday_old_data.push(input_value)
         for (let a = 0; a < Yesterday.length; a++) {
             let items_ = document.getElementById('Add_Yesterday_todo');
-            let Element = document.createElement('li');
+            let Element = document.createElement('div');
             Element.innerText = Yesterday[a];
             items_.append(Element);
             Yesterday = Yesterday.filter(e => e !== Yesterday[a]);
@@ -40,8 +49,15 @@ document.getElementById('Btn').addEventListener('click', () => {
         Add_localStorage(input_value);
         document.getElementById("Yesterday").value = ''
     }
-})
-
+}
+// This will execute when we click add
+document.getElementById('Btn').addEventListener('click', AddItems, false)
+// This will execute when we click Enter key
+document.onkeydown = function () {
+    if(window.event.keyCode=='13'){
+        AddItems();
+    }
+}
 function RenderExisting() {
     CreateElements(Yesterday_old_data[0])
 }
