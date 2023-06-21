@@ -12,3 +12,10 @@
     width:10em;
     line-break: anywhere;
 }
+.cont{
+    margin-top:10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
