@@ -6,18 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./Style.css" />
-    <title>TodoList</title>
+    <title>Task Planner</title>
 </head>
 
 <body class="cont">
-    <header>
-        <div>Atlast it's over, My life is nothing but a suffering!</div>
+    <header id="Header_">
+        <!-- <div id="cont" class="Done_cls">
+            <button>CLOSE</button>
+        </div> -->
     </header>
-    <section style="margin: 4em;">
+    <section style="padding: 1em;">
         <textarea type="textarea" id="Yesterday"></textarea>
-        <button type="submit" id="Btn">Add</button>
+        <div class="btn_cvr">
+            <button type="submit" class="Btn_done btn90" id="Btn">Add Item</button>
+        </div>
+    </section>
+    <section>
         <div id="Add_Yesterday_todo">Todos:</div>
     </section>
+    <footer class="footer_">
+        <div>Life is nothing but a suffering! ~Micky</div>
+        <a id="downloadFile">
+            <button id="download_btn" class="rocket" style="background-color: transparent;">&#128640;</button>
+        </a>
+    </footer>
 </body>
 <script src="./Script.js">
 
