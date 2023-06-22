@@ -22,7 +22,7 @@ body {
 
 .TodoContent {
     width: 10em;
-    line-break: anywhere;
+    overflow-wrap: break-word;
     margin: 0 2em 0 1em;
 }
 
