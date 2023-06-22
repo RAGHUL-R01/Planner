@@ -23,7 +23,6 @@ function CreateElements(Array1, parentclassname, childclassname) {
             Btn_Done.setAttribute("class", "Btn_done");
             Btn_Done.setAttribute("id", Array1[a]);
         }
-
     }
 }
 
@@ -109,7 +108,7 @@ document.querySelectorAll('.Btn_done').forEach(function (item) {
         location.reload();
     });
 });
-
+// to show the done
 function ShowDone() {
     let Temp_yesterday = window.localStorage.getItem("DONE") || null
     Temp_yesterday = Temp_yesterday.split(',');
@@ -119,15 +118,16 @@ function ShowDone() {
 
 // ShowDone();
 
+//download the done file
 function downloadFile(type) {
     let Temp_yesterday = window.localStorage.getItem("TODO") || null
     Temp_yesterday = Temp_yesterday.split(',');
-
     var Element = document.getElementById('downloadFile');
     var file = new Blob(Temp_yesterday, { type: type });
     Element.href = URL.createObjectURL(file);
     Element.download = 'TodosToday.txt';
 }
+//triggering download file function in rocket button
 document.getElementById('download_btn').addEventListener('click', () => {
     downloadFile("file txt", 'filet.txt', 'text/plain');
     let a = document.getElementById('download_btn')
